@@ -3,7 +3,7 @@
 namespace Ptr
 {
 	//pointer that deallocates heap memory once it has exited the scope
-	//for safety, there can only be 1 pointer for each section of memory
+	//for safety, there can only be 1 pointer to each heap allocated block of memory
 	template <typename T>
 	class ScopedPtr
 	{
