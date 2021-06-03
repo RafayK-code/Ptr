@@ -6,7 +6,11 @@ Lightweight C++ smart pointer library
 * Automatic memory managment (Memory is cleaned automatically)
 
 ### Usage
-Usage is simple, declare the pointer that you wish to use like any other class, you will create a heap allocated object that can be used like a regular pointer
+Usage is simple, declare the pointer that you wish to use like any other class, you will create a heap allocated object that can be used like a regular pointer. Scoped Pointers are unique, and cannot share a memory address. Reference Pointers can be used if you wish to have a heap allocated object, with multiple pointers pointing to it
+
+### Examples
+* Heap allocating using ScopedPtr<T>
+  
 ```c++
 #include <iostream>
 #include "Ptr.h"
@@ -39,3 +43,4 @@ int main()
   
   return 0;
 }
+```
