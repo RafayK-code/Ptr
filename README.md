@@ -33,10 +33,10 @@ int main()
 {
   {
     //allocate using safe function
-    Ptr::ScopedPtr<Vector2> ptr = Ptr::InitScopedPtr<Vector2>(5, 6);
-    ptr->x = 7;
+    Ptr::ScopedPtr<Vector2> vec = Ptr::InitScopedPtr<Vector2>(5, 6);
+    vec->x = 7;
   
-    std::cout << "Values: " << ptr->x << " " << ptr->y << std::endl;
+    std::cout << "Values: " << vec->x << " " << vec->y << std::endl;
     //will output Values: 7 6
     
     //allocate using constructor
@@ -69,25 +69,25 @@ public:
   Renderer() { ... }
   ~Renderer() { ... }
   
-  void AssignWindow(const Ptr::RefPtr<Window>& _ptr) { ptr = _ptr; }
+  void AssignWindow(const Ptr::RefPtr<Window>& window_ptr) { window = window_ptr; }
   
 private:
-  Ptr::RefPtr<Window> ptr;
+  Ptr::RefPtr<Window> window;
 };
 
 int main()
 {
-  Ptr::RefPtr<Window> ptr = Ptr::InitRefPtr<Window>();
+  Ptr::RefPtr<Window> window = Ptr::InitRefPtr<Window>();
   
   {
     Ptr::ScopedPtr<Renderer> renderer(new Renderer());
-    renderer->AssignWindow(ptr);
+    renderer->AssignWindow(window);
     
-    std::cout << ptr.GetRefCount() << "\n";
+    std::cout << window.GetRefCount() << "\n";
     //output is 2
   } // memory allocated for renderer gets deleted here. Reference count also decreases
   
-  std::cout << ptr.GetRefCount() << "\n";
+  std::cout << window.GetRefCount() << "\n";
   //output is 1
   
   return 0;
