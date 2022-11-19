@@ -1,4 +1,28 @@
 #pragma once
+#ifndef _PTR_H
+#define _PTR_H
+
+/**
+* Ptr
+* Lightweight C++ smart pointer library.
+*
+* Goals
+* This was created to act as a replacement for the smart pointers in the standard library by removing unneeded functionality, 
+* and reducing the overhead that the standard library has.
+*
+* Features
+* Scoped Pointers and Reference Pointers
+* Automatic memory managment (Memory is cleaned automatically)
+*
+* Usage
+* Usage is simple, declare the pointer that you wish to use like any other class, 
+* you will create a heap allocated object that can be used like a regular pointer. 
+* Scoped Pointers are unique, and cannot share a memory address. 
+* Reference Pointers can be used if you wish to have a heap allocated object, with multiple pointers pointing to it.
+* 
+* Author: Rafay Kashif
+* Licensced under the MIT License
+*/
 
 namespace Ptr
 {
@@ -336,3 +360,5 @@ namespace Ptr
 		}
 	}
 }
+
+#endif
